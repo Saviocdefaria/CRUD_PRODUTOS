@@ -4,6 +4,9 @@ using CRUD_PRODUTOS.Data;     // importação de namespaces necessários
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); // registro do AppDbContext com as configurações do appsettings.json
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));  // configuração da conexão
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -12,8 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); // registro do AppDbContext com as configurações do appsettings.json
-builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));  // configuração da conexão
+
 
 
 // Configure the HTTP request pipeline.

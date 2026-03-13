@@ -8,6 +8,6 @@
         public decimal Preco_Compra { get; set; }
         public decimal Preco_Revenda { get; set; }
         public int CategoriaId { get; set; }
-        Categoria Categoria { get; set; }  // Navigation Property
+        public Categoria Categoria { get; set; }  // Navigation Property
     }
 }
