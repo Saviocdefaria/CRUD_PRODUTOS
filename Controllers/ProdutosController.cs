@@ -71,8 +71,6 @@ namespace CRUD_PRODUTOS.Controllers
             _context.SaveChanges();
             return NoContent();
         }
-        
-
         }
 
     }
